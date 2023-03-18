@@ -13,6 +13,7 @@ body {
 }
 
 #search-box {
+  background-color: #9cde8a;
   font: inherit;
   padding: 8px;
   max-width: 320px;

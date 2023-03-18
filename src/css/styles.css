@@ -13,10 +13,11 @@ body {
 }
 
 #search-box {
-  background-color: #de8aac;
+  background-color: #ded5d9;
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
   margin-top: 30px;
+  border-radius: 5px;
 }

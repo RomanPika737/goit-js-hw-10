@@ -12,12 +12,50 @@ body {
   line-height: 1.5;
 }
 
+ /* .visually-hidden {
+   position: absolute;
+   white-space: nowrap;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+   border: 0;
+   padding: 0;
+   clip: rect(0 0 0 0);
+   clip-path: inset(50%);
+   margin: -1px;
+ } */
+
 #search-box {
-  background-color: #ded5d9;
+  background-color: #ffffff;
   font: inherit;
   padding: 8px;
   max-width: 320px;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
   margin-top: 30px;
+  margin-left: 30px;
   border-radius: 5px;
+  border: 2px solid black;
+}
+
+.country-list {
+      list-style: none;
+}
+
+.country {
+  margin-left: 15px;
+      display: flex;
+        align-items: center;
+}
+
+.country-name {
+  margin-left: 20px;
+}
+
+.country-info {
+  margin-left: 15px;
+}
+
+.country-list_item {
+  display: flex;
+  align-items: center;
 }

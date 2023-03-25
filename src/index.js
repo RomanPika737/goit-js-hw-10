@@ -64,19 +64,21 @@ function onSearchInputBox() {
   if (enteredCountry === '') {
     refs.countryList.innerHTML = '';
     refs.countryInfo.innerHTML = '';
-    // return;
-  } else if (enteredCountry !== '') {
+    return;
+  }
+  // } else if (enteredCountry !== '') {
+  
     fetchCountries(enteredCountry).then(foundCountries => {
       if (foundCountries.length > 10) {
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.',
-        {
-            timeout: 500,
-        }
+        // {
+        //     timeout: 500,
+        // }
         );
         refs.countryList.innerHTML = '';
   
         
-      } else if (foundCountries.length > 2 && foundCountries.length <= 10) {
+      } else if (foundCountries.length > 1 && foundCountries.length <= 10) {
         makeCountryList(foundCountries);
         // return;
 
@@ -91,7 +93,6 @@ function onSearchInputBox() {
       refs.countryInfo.innerHTML = '';
     })
   }
-}
 
 
 
@@ -106,131 +107,3 @@ function onSearchInputBox() {
 
 
 
-
-
-
-// fetch("https://restcountries.com/v2/name/Ukraine?fields=name, capital, population, flags.svg, languages")
-//   .then(response => response.json())
-//   .then(data => console.log(data))
-//   .catch(error => console.error(error));
-
-//   const fetchCountries = (name) => {
-//   const fields = "name, capital, population, flags.svg, languages";
-//   return fetch(`https://restcountries.com/v2/name/${name}?fields=${fields}`)
-//     .then(response => response.json())
-//     .then(data => data)
-//     .catch(error => console.error(error));
-// };
-
-
-// const filteredCountries = countries.map(country => ({
-//   name: country.name.official,
-//   capital: country.capital,
-//   population: country.population,
-//   flag: country.flags.svg,
-//   languages: country.languages.map(language => language.name).join(", ")
-// }));
-
-
-
-
-
-
-
-
-
-
-
-
-// const BASE_URL = 'https://restcountries.com/v3.1/name/';
-
-// async function fetchCountries(name) {
-//   const response = await fetch(`${BASE_URL}${name}?fields=name.official;capital;population;flags.svg;languages`);
-//   const countries = await response.json();
-//   return countries;
-// }
-
-// // export { fetchCountries };
-
-
-// // import { fetchCountries } from './fetchCountries.js';
-// import debounce from 'lodash.debounce';
-// import Notiflix from 'notiflix';
-
-// const searchBox = document.querySelector('#search-box');
-// const countryList = document.querySelector('.country-list');
-
-// function renderCountryList(countries) {
-//   countryList.innerHTML = '';
-
-//   if (countries.length === 0) {
-//     return;
-//   }
-
-//   if (countries.length > 10) {
-//     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
-//     return;
-//   }
-
-//   const countryItems = countries.map((country) => {
-//     const countryItem = document.createElement('div');
-//     countryItem.classList.add('country-item');
-
-//     const flag = document.createElement('img');
-//     flag.classList.add('flag');
-//     // flag.src = country.flags.svg;
-
-//     const name = document.createElement('span');
-//     name.classList.add('name');
-//       name.textContent = country.name.official;
-//     //   console.log(country.name.official);
-
-//     countryItem.appendChild(flag);
-//     countryItem.appendChild(name);
-
-//     return countryItem;
-//   });
-
-//   countryList.append(...countryItems);
-// }
-
-// function onSearchInput(event) {
-//   const searchTerm = event.target.value.trim();
-
-//   if (searchTerm === '') {
-//     countryList.innerHTML = '';
-//     return;
-//   }
-
-//   fetchCountries(searchTerm).then((countries) => {
-//     renderCountryList(countries);
-//   });
-// }
-
-// searchBox.addEventListener('input', debounce(onSearchInput, 300));
-
-
-
-
-
-
-// _______________________________________________
-
-// function makeCountryInfo(countries) {
-//   refs.countryInfo.innerHTML = '';
-//       const markup = countries
-//         .map(country => {
-//           return `<li>
-//       <img src="${country.flags.svg}" alt="Flag of ${
-//             country.name.official
-//           }" width="40">
-//          <b>${country.name.official}</b></p>
-//             <p><b>Capital</b>: ${country.capital}</p>
-//             <p><b>Population</b>: ${country.population}</p>
-//             <p><b>Languages</b>: ${Object.values(country.languages)} </p>
-//                 </li>`;
-//         })
-//         .join('');
-//   // refs.countryList.insertAdjacentHTML('beforeend', markup);
-//    refs.countryList.innerHTML = markup;
-// }

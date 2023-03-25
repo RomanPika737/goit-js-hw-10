@@ -103,6 +103,120 @@ function onSearchInputBox() {
 
 
 
+// ===============================================================================
+
+
+
+// const BASE_URL = 'https://restcountries.com/v3.1/name/';
+
+// async function fetchCountries(name) {
+//   const response = await fetch(`${BASE_URL}${name}?fields=name,capital,population,flags,languages`);
+//   const countries = await response.json();
+//   return countries;
+// }
+
+
+// import './css/styles.css';
+// import { fetchCountries } from './js/fetchCountries';
+// import debounce from 'lodash.debounce';
+// import Notiflix from 'notiflix';
+
+// Notiflix.Notify.init({
+//   width: '380px',
+//   position: 'center-top', // 'right-top' - 'right-bottom' - 'left-top' - 'left-bottom' - 'center-top' - 'center-bottom' - 'center-center'
+//   cssAnimationStyle: 'from-left', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
+// });
+
+
+// const DEBOUNCE_DELAY = 300;
+
+// const searchBox = document.querySelector('#search-box');
+// const countryList = document.querySelector('.country-list');
+
+// function renderCountryList(countries) {
+//   countryList.innerHTML = '';
+
+//   if (countries.length === 0) {
+//     return;
+//   }
+
+//   if (countries.length > 10) {
+//     Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+//     return;
+//   }
+
+//   const countryItems = countries.map((country) => {
+//     const countryItem = document.createElement('div');
+//     countryItem.classList.add('country-item');
+
+//     const flag = document.createElement('img');
+//     flag.classList.add('flag');
+//     flag.src = country.flags.svg;
+//     flag.setAttribute("width", "50px");
+
+//     const name = document.createElement('span');
+//     name.classList.add('name');
+//       name.textContent = country.name.official;
+//     //   console.log(country.name.official);
+
+//     countryItem.appendChild(flag);
+//     countryItem.appendChild(name);
+
+//     return countryItem;
+//   });
+
+//   countryList.append(...countryItems);
+// }
+
+// function onSearchInput(event) {
+//   const searchTerm = event.target.value.trim();
+
+//   if (searchTerm === '') {
+//     countryList.innerHTML = '';
+//     return;
+//   }
+
+//   fetchCountries(searchTerm).then((countries) => {
+//     renderCountryList(countries);
+//   }).catch(error => {
+//       Notiflix.Notify.failure('Oops, there is no country with that name');
+//       // return error;
+//       refs.countryList.innerHTML = '';
+//       refs.countryInfo.innerHTML = '';
+//     });
+// }
+
+// searchBox.addEventListener('input', debounce(onSearchInput, DEBOUNCE_DELAY));
+
+
+
+
+
+
+// _______________________________________________
+
+// function makeCountryInfo(countries) {
+//   refs.countryInfo.innerHTML = '';
+//       const markup = countries
+//         .map(country => {
+//           return `<li>
+//       <img src="${country.flags.svg}" alt="Flag of ${
+//             country.name.official
+//           }" width="40">
+//          <b>${country.name.official}</b></p>
+//             <p><b>Capital</b>: ${country.capital}</p>
+//             <p><b>Population</b>: ${country.population}</p>
+//             <p><b>Languages</b>: ${Object.values(country.languages)} </p>
+//                 </li>`;
+//         })
+//         .join('');
+//   // refs.countryList.insertAdjacentHTML('beforeend', markup);
+//    refs.countryList.innerHTML = markup;
+// }
+
+
+
+
 
 
 
